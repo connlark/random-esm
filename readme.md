@@ -1,8 +1,10 @@
-# random
+# random-esm
 
-> Seedable random number generator supporting many common distributions.
+> Seedable random number generator supporting many common distributions (with esm extension specifiers)
 
-[![NPM](https://img.shields.io/npm/v/random.svg)](https://www.npmjs.com/package/random) [![Build Status](https://github.com/transitive-bullshit/random/actions/workflows/build.yml/badge.svg)](https://github.com/transitive-bullshit/random/actions/workflows/build.yml) [![Prettier Code Formatting](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io)
+[![NPM](https://img.shields.io/npm/v/random.svg)](https://www.npmjs.com/package/random-esm) [![Prettier Code Formatting](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io)
+
+> this is a fork from [transitive-bullshit/random](https://github.com/transitive-bullshit/random) (includes breaking changes)
 
 Welcome to the most **random** module on npm! 😜
 
@@ -21,17 +23,17 @@ Welcome to the most **random** module on npm! 😜
 ## Install
 
 ```bash
-npm install --save random
+npm install --save random-esm
 # or
-yarn add random
+yarn add random-esm
 ```
 
 ## Usage
 
 ```js
-const random = require('random')
+const random = require('random-esm')
 // or
-import random from 'random'
+import random from 'random-esm'
 
 // quick uniform shortcuts
 random.float((min = 0), (max = 1)) // uniform float in [ min, max )
@@ -478,6 +480,10 @@ Type: `function (alpha): function`
 
 ## Credit
 
+[Travis Fischer](https://transitivebullsh.it) support his OSS work by <a href="https://twitter.com/transitive_bs">following him on twitter <img src="https://storage.googleapis.com/saasify-assets/twitter-logo.svg" alt="twitter" height="24px" align="center"></a>
+
+[Charles Lowell](https://github.com/cowboyd)
+
 Thanks go to [Andrew Moss](https://github.com/agmoss) for the TypeScript port and for helping to maintain this package!
 
 Shoutout to [Roger Combs](https://github.com/rcombs) for donating the `random` npm package for this project!
@@ -485,9 +491,3 @@ Shoutout to [Roger Combs](https://github.com/rcombs) for donating the `random` n
 Lots of inspiration from [d3-random](https://github.com/d3/d3-random) ([@mbostock](https://github.com/mbostock) and [@svanschooten](https://github.com/svanschooten)).
 
 Some distributions and PRNGs are ported from C++ [boost::random](https://www.boost.org/doc/libs/1_66_0/doc/html/boost_random/reference.html#boost_random.reference.distributions).
-
-## License
-
-MIT © [Travis Fischer](https://transitivebullsh.it)
-
-Support my OSS work by <a href="https://twitter.com/transitive_bs">following me on twitter <img src="https://storage.googleapis.com/saasify-assets/twitter-logo.svg" alt="twitter" height="24px" align="center"></a>

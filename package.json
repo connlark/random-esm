@@ -2,6 +2,8 @@
   "name": "random-esm",
   "version": "4.0.0",
   "description": "Seedable random number generator supporting many common distributions.",
+  "repository": "connlark/random-ejs",
+  "author": "Connor Larkin <~@connorlarkin.com>",
   "main": "dist/cjs/index.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
