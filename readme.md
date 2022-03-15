@@ -4,7 +4,7 @@
 
 [![NPM](https://img.shields.io/npm/v/random-esm.svg)](https://www.npmjs.com/package/random-esm) [![build](https://github.com/connlark/random-esm/actions/workflows/build.yml/badge.svg)](https://github.com/connlark/random-esm/actions/workflows/build.yml) [![Prettier Code Formatting](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io) 
 
-> this is a fork of [transitive-bullshit/random](https://github.com/transitive-bullshit/random) (includes breaking changes)
+> :warning: this is a fork of [transitive-bullshit/random](https://github.com/transitive-bullshit/random) **(includes breaking changes)**
 
 Welcome to the most **random** module on npm! 😜
 
