@@ -1,6 +1,6 @@
 {
   "name": "random-esm",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Seedable random number generator supporting many common distributions.",
   "repository": "connlark/random-ejs",
   "author": "Connor Larkin <~@connorlarkin.com>",
@@ -61,14 +61,15 @@
     "esbuild-node-loader": "^0.8.0",
     "eslint": "^8.11.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint-config-standard": "^17.0.0-1",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-n": "^15.0.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.2.1",
-    "typescript": "^4.6.2",
+    "prettier": "^2.5.1",
+    "typescript": "^4.7.0-dev.20220314",
     "update-markdown-jsdoc": "^1.0.11"
   },
   "files": [

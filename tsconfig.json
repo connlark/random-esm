@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
+    "outDir": "./dist",
     "composite": true,
     "target": "ES2020",
-    "moduleResolution": "node",
+    "module": "ES2020",
+    "moduleResolution": "nodenext",
     "allowJs": true,
     "declaration": true,
-    "declarationMap": true,
+    "declarationMap": false,
     "declarationDir": "dist/types",
-    "sourceMap": true,
-    "rootDir": "src",
+    "sourceMap": false,
+    "inlineSources": false,
     "strict": true,
     "noEmit": true,
     "noImplicitAny": true,
@@ -24,10 +26,11 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": "src",
   },
   "include": [
-    "src/**/*"
+    "./src"
   ],
   "exclude": [
     "node_modules",
