@@ -2,7 +2,7 @@
 
 > Seedable random number generator supporting many common distributions (with esm extension specifiers)
 
-[![NPM](https://img.shields.io/npm/v/random-esm.svg)](https://www.npmjs.com/package/random-esm) [![Prettier Code Formatting](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io)
+[![NPM](https://img.shields.io/npm/v/random-esm.svg)](https://www.npmjs.com/package/random-esm) [![build](https://github.com/connlark/random-esm/actions/workflows/build.yml/badge.svg)](https://github.com/connlark/random-esm/actions/workflows/build.yml) [![Prettier Code Formatting](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io) 
 
 > this is a fork of [transitive-bullshit/random](https://github.com/transitive-bullshit/random) (includes breaking changes)
 
@@ -10,15 +10,15 @@ Welcome to the most **random** module on npm! 😜
 
 ## Highlights
 
-- Simple API (_make easy things easy and hard things possible_)
-- TypeScript supported!
-- Seedable based on entropy or user input
-- Plugin support for different pseudo random number generators (PRNGs)
-- Sample from many common distributions
-  - uniform, normal, poisson, bernoulli, etc
-- Validates all user input via [ow](https://github.com/sindresorhus/ow)
-- Integrates with [seedrandom](https://github.com/davidbau/seedrandom)
-- Supports node >= 6 and browser
+-   Simple API (_make easy things easy and hard things possible_)
+-   TypeScript supported!
+-   Seedable based on entropy or user input
+-   Plugin support for different pseudo random number generators (PRNGs)
+-   Sample from many common distributions
+    -   uniform, normal, poisson, bernoulli, etc
+-   Validates all user input via [ow](https://github.com/sindresorhus/ow)
+-   Integrates with [seedrandom](https://github.com/davidbau/seedrandom)
+-   Supports node >= 6 and browser
 
 ## Install
 
@@ -119,33 +119,33 @@ rng.unpatch()
 
 #### Table of Contents
 
-- [Random](#random)
-  - [rng](#rng)
-  - [clone](#clone)
-  - [use](#use)
-  - [patch](#patch)
-  - [unpatch](#unpatch)
-  - [next](#next)
-  - [float](#float)
-  - [int](#int)
-  - [integer](#integer)
-  - [bool](#bool)
-  - [boolean](#boolean)
-  - [uniform](#uniform)
-  - [uniformInt](#uniformint)
-  - [uniformBoolean](#uniformboolean)
-  - [normal](#normal)
-  - [logNormal](#lognormal)
-  - [bernoulli](#bernoulli)
-  - [binomial](#binomial)
-  - [geometric](#geometric)
-  - [poisson](#poisson)
-  - [exponential](#exponential)
-  - [irwinHall](#irwinhall)
-  - [bates](#bates)
-  - [pareto](#pareto)
+-   [Random](#random)
+    -   [next](#next)
+    -   [float](#float)
+    -   [int](#int)
+    -   [integer](#integer)
+    -   [bool](#bool)
+    -   [boolean](#boolean)
+    -   [uniform](#uniform)
+    -   [uniformInt](#uniformint)
+    -   [uniformBoolean](#uniformboolean)
+    -   [normal](#normal)
+    -   [logNormal](#lognormal)
+    -   [bernoulli](#bernoulli)
+    -   [binomial](#binomial)
+    -   [geometric](#geometric)
+    -   [poisson](#poisson)
+    -   [exponential](#exponential)
+    -   [irwinHall](#irwinhall)
+    -   [bates](#bates)
+    -   [pareto](#pareto)
+    -   [rng](#rng)
+    -   [clone](#clone)
+    -   [use](#use)
+    -   [patch](#patch)
+    -   [unpatch](#unpatch)
 
-### [Random](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L36-L382)
+### [Random](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L28-L347)
 
 Seedable random number generator supporting many common distributions.
 
@@ -153,32 +153,240 @@ Defaults to Math.random as its underlying pseudorandom number generator.
 
 Type: `function (rng)`
 
-- `rng` **(RNG | [function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function))** Underlying pseudorandom number generator. (optional, default `Math.random`)
+-   `rng` **(RNG | [function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function))** Underlying pseudorandom number generator. (optional, default `Math.random`)
 
----
+* * *
 
-#### [rng](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L47-L49)
+#### [next](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L41-L43)
+
+Convenience wrapper around `this.rng.next()`
+
+Returns a floating point number in \[0, 1).
+
+Type: `function (): number`
+
+* * *
+
+#### [float](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L54-L56)
+
+Samples a uniform random floating point number, optionally specifying
+lower and upper bounds.
+
+Convence wrapper around `random.uniform()`
+
+Type: `function (min, max): number`
+
+-   `min` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Lower bound (float, inclusive) (optional, default `0`)
+-   `max` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Upper bound (float, exclusive) (optional, default `1`)
+
+* * *
+
+#### [int](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L67-L69)
+
+Samples a uniform random integer, optionally specifying lower and upper
+bounds.
+
+Convence wrapper around `random.uniformInt()`
+
+Type: `function (min, max): number`
+
+-   `min` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Lower bound (integer, inclusive) (optional, default `0`)
+-   `max` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Upper bound (integer, inclusive) (optional, default `1`)
+
+* * *
+
+#### [integer](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L82-L84)
+
+Samples a uniform random integer, optionally specifying lower and upper
+bounds.
+
+Convence wrapper around `random.uniformInt()`
+
+Type: `function (min, max): number`
+
+-   `min` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Lower bound (integer, inclusive) (optional, default `0`)
+-   `max` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Upper bound (integer, inclusive) (optional, default `1`)
+
+* * *
+
+#### [bool](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L94-L96)
+
+Samples a uniform random boolean value.
+
+Convence wrapper around `random.uniformBoolean()`
+
+Type: `function (): boolean`
+
+* * *
+
+#### [boolean](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L104-L106)
+
+Samples a uniform random boolean value.
+
+Convence wrapper around `random.uniformBoolean()`
+
+Type: `function (): boolean`
+
+* * *
+
+#### [uniform](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L117-L119)
+
+Generates a [Continuous uniform distribution](https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)).
+
+Type: `function (min, max): function`
+
+-   `min` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Lower bound (float, inclusive) (optional, default `0`)
+-   `max` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Upper bound (float, exclusive) (optional, default `1`)
+
+* * *
+
+#### [uniformInt](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L127-L129)
+
+Generates a [Discrete uniform distribution](https://en.wikipedia.org/wiki/Discrete_uniform_distribution).
+
+Type: `function (min, max): function`
+
+-   `min` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Lower bound (integer, inclusive) (optional, default `0`)
+-   `max` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Upper bound (integer, inclusive) (optional, default `1`)
+
+* * *
+
+#### [uniformBoolean](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L138-L140)
+
+Generates a [Discrete uniform distribution](https://en.wikipedia.org/wiki/Discrete_uniform_distribution),
+with two possible outcomes, `true` or \`false.
+
+This method is analogous to flipping a coin.
+
+Type: `function (): function`
+
+* * *
+
+#### [normal](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L151-L153)
+
+Generates a [Normal distribution](https://en.wikipedia.org/wiki/Normal_distribution).
+
+Type: `function (mu, sigma): function`
+
+-   `mu` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Mean (optional, default `0`)
+-   `sigma` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Standard deviation (optional, default `1`)
+
+* * *
+
+#### [logNormal](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L161-L163)
+
+Generates a [Log-normal distribution](https://en.wikipedia.org/wiki/Log-normal_distribution).
+
+Type: `function (mu, sigma): function`
+
+-   `mu` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Mean of underlying normal distribution (optional, default `0`)
+-   `sigma` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Standard deviation of underlying normal distribution (optional, default `1`)
+
+* * *
+
+#### [bernoulli](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L173-L175)
+
+Generates a [Bernoulli distribution](https://en.wikipedia.org/wiki/Bernoulli_distribution).
+
+Type: `function (p): function`
+
+-   `p` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Success probability of each trial. (optional, default `0.5`)
+
+* * *
+
+#### [binomial](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L183-L185)
+
+Generates a [Binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution).
+
+Type: `function (n, p): function`
+
+-   `n` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Number of trials. (optional, default `1`)
+-   `p` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Success probability of each trial. (optional, default `0.5`)
+
+* * *
+
+#### [geometric](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L192-L194)
+
+Generates a [Geometric distribution](https://en.wikipedia.org/wiki/Geometric_distribution).
+
+Type: `function (p): function`
+
+-   `p` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Success probability of each trial. (optional, default `0.5`)
+
+* * *
+
+#### [poisson](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L204-L206)
+
+Generates a [Poisson distribution](https://en.wikipedia.org/wiki/Poisson_distribution).
+
+Type: `function (lambda): function`
+
+-   `lambda` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Mean (lambda > 0) (optional, default `1`)
+
+* * *
+
+#### [exponential](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L213-L215)
+
+Generates an [Exponential distribution](https://en.wikipedia.org/wiki/Exponential_distribution).
+
+Type: `function (lambda): function`
+
+-   `lambda` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Inverse mean (lambda > 0) (optional, default `1`)
+
+* * *
+
+#### [irwinHall](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L225-L227)
+
+Generates an [Irwin Hall distribution](https://en.wikipedia.org/wiki/Irwin%E2%80%93Hall_distribution).
+
+Type: `function (n): function`
+
+-   `n` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Number of uniform samples to sum (n >= 0) (optional, default `1`)
+
+* * *
+
+#### [bates](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L234-L236)
+
+Generates a [Bates distribution](https://en.wikipedia.org/wiki/Bates_distribution).
+
+Type: `function (n): function`
+
+-   `n` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Number of uniform samples to average (n >= 1) (optional, default `1`)
+
+* * *
+
+#### [pareto](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L243-L245)
+
+Generates a [Pareto distribution](https://en.wikipedia.org/wiki/Pareto_distribution).
+
+Type: `function (alpha): function`
+
+-   `alpha` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Alpha (optional, default `1`)
+
+* * *
+
+#### [rng](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L257-L259)
 
 Type: `function ()`
 
----
+* * *
 
-#### [clone](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L61-L67)
+#### [clone](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L270-L277)
 
-- **See: RNG.clone**
+-   **See: RNG.clone**
 
 Creates a new `Random` instance, optionally specifying parameters to
 set a new seed.
 
 Type: `function (args, seed, opts): Random`
 
-- `args` **...any**
-- `seed` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** Optional seed for new RNG.
-- `opts` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)?** Optional config for new RNG options.
+-   `args` **...any** 
+-   `seed` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** Optional seed for new RNG.
+-   `opts` **[object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)?** Optional config for new RNG options.
 
----
+* * *
 
-#### [use](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L87-L89)
+#### [use](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L296-L298)
 
 Sets the underlying pseudorandom number generator used via
 either an instance of `seedrandom`, a custom instance of RNG
@@ -188,12 +396,12 @@ RNG.
 
 Type: `function (args)`
 
-- `args` **...any**
+-   `args` **...any** 
 
 Example:
 
 ```javascript
-const random = require('random')
+const random = require('random-esm')
 
 random.use('example_seedrandom_string')
 // or
@@ -202,281 +410,73 @@ random.use(seedrandom('kittens'))
 random.use(Math.random)
 ```
 
----
+* * *
 
-#### [patch](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L94-L101)
+#### [patch](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L302-L308)
 
 Patches `Math.random` with this Random instance's PRNG.
 
 Type: `function ()`
 
----
+* * *
 
-#### [unpatch](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L106-L111)
+#### [unpatch](https://github.com/connlark/random-esm/blob/49a344165e26c0df648e23a84e5a668c442d92ef/dist/esm/random.js#L312-L317)
 
 Restores a previously patched `Math.random` to its original value.
 
 Type: `function ()`
 
----
-
-#### [next](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L124-L126)
-
-Convenience wrapper around `this.rng.next()`
-
-Returns a floating point number in \[0, 1).
-
-Type: `function (): number`
-
----
-
-#### [float](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L138-L140)
-
-Samples a uniform random floating point number, optionally specifying
-lower and upper bounds.
-
-Convence wrapper around `random.uniform()`
-
-Type: `function (min, max): number`
-
-- `min` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Lower bound (float, inclusive) (optional, default `0`)
-- `max` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Upper bound (float, exclusive) (optional, default `1`)
-
----
-
-#### [int](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L152-L154)
-
-Samples a uniform random integer, optionally specifying lower and upper
-bounds.
-
-Convence wrapper around `random.uniformInt()`
-
-Type: `function (min, max): number`
-
-- `min` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Lower bound (integer, inclusive) (optional, default `0`)
-- `max` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Upper bound (integer, inclusive) (optional, default `1`)
-
----
-
-#### [integer](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L168-L170)
-
-Samples a uniform random integer, optionally specifying lower and upper
-bounds.
-
-Convence wrapper around `random.uniformInt()`
-
-Type: `function (min, max): number`
-
-- `min` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Lower bound (integer, inclusive) (optional, default `0`)
-- `max` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Upper bound (integer, inclusive) (optional, default `1`)
-
----
-
-#### [bool](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L181-L183)
-
-Samples a uniform random boolean value.
-
-Convence wrapper around `random.uniformBoolean()`
-
-Type: `function (): boolean`
-
----
-
-#### [boolean](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L192-L194)
-
-Samples a uniform random boolean value.
-
-Convence wrapper around `random.uniformBoolean()`
-
-Type: `function (): boolean`
-
----
-
-#### [uniform](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L207-L209)
-
-Generates a [Continuous uniform distribution](<https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)>).
-
-Type: `function (min, max): function`
-
-- `min` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Lower bound (float, inclusive) (optional, default `0`)
-- `max` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Upper bound (float, exclusive) (optional, default `1`)
-
----
-
-#### [uniformInt](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L218-L220)
-
-Generates a [Discrete uniform distribution](https://en.wikipedia.org/wiki/Discrete_uniform_distribution).
-
-Type: `function (min, max): function`
-
-- `min` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Lower bound (integer, inclusive) (optional, default `0`)
-- `max` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Upper bound (integer, inclusive) (optional, default `1`)
-
----
-
-#### [uniformBoolean](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L230-L232)
-
-Generates a [Discrete uniform distribution](https://en.wikipedia.org/wiki/Discrete_uniform_distribution),
-with two possible outcomes, `true` or \`false.
-
-This method is analogous to flipping a coin.
-
-Type: `function (): function`
-
----
-
-#### [normal](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L245-L247)
-
-Generates a [Normal distribution](https://en.wikipedia.org/wiki/Normal_distribution).
-
-Type: `function (mu, sigma): function`
-
-- `mu` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Mean (optional, default `0`)
-- `sigma` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Standard deviation (optional, default `1`)
-
----
-
-#### [logNormal](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L256-L258)
-
-Generates a [Log-normal distribution](https://en.wikipedia.org/wiki/Log-normal_distribution).
-
-Type: `function (mu, sigma): function`
-
-- `mu` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Mean of underlying normal distribution (optional, default `0`)
-- `sigma` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Standard deviation of underlying normal distribution (optional, default `1`)
-
----
-
-#### [bernoulli](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L270-L272)
-
-Generates a [Bernoulli distribution](https://en.wikipedia.org/wiki/Bernoulli_distribution).
-
-Type: `function (p): function`
-
-- `p` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Success probability of each trial. (optional, default `0.5`)
-
----
-
-#### [binomial](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L281-L283)
-
-Generates a [Binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution).
-
-Type: `function (n, p): function`
-
-- `n` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Number of trials. (optional, default `1`)
-- `p` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Success probability of each trial. (optional, default `0.5`)
-
----
-
-#### [geometric](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L291-L293)
-
-Generates a [Geometric distribution](https://en.wikipedia.org/wiki/Geometric_distribution).
-
-Type: `function (p): function`
-
-- `p` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Success probability of each trial. (optional, default `0.5`)
-
----
-
-#### [poisson](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L305-L307)
-
-Generates a [Poisson distribution](https://en.wikipedia.org/wiki/Poisson_distribution).
-
-Type: `function (lambda): function`
-
-- `lambda` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Mean (lambda > 0) (optional, default `1`)
-
----
-
-#### [exponential](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L315-L317)
-
-Generates an [Exponential distribution](https://en.wikipedia.org/wiki/Exponential_distribution).
-
-Type: `function (lambda): function`
-
-- `lambda` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Inverse mean (lambda > 0) (optional, default `1`)
-
----
-
-#### [irwinHall](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L329-L331)
-
-Generates an [Irwin Hall distribution](https://en.wikipedia.org/wiki/Irwin%E2%80%93Hall_distribution).
-
-Type: `function (n): function`
-
-- `n` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Number of uniform samples to sum (n >= 0) (optional, default `1`)
-
----
-
-#### [bates](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L339-L341)
-
-Generates a [Bates distribution](https://en.wikipedia.org/wiki/Bates_distribution).
-
-Type: `function (n): function`
-
-- `n` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Number of uniform samples to average (n >= 1) (optional, default `1`)
-
----
-
-#### [pareto](https://github.com/transitive-bullshit/random/blob/e11a840a1cfe0f5bd9c43640f9645a0b28f61406/src/random.js#L349-L351)
-
-Generates a [Pareto distribution](https://en.wikipedia.org/wiki/Pareto_distribution).
-
-Type: `function (alpha): function`
-
-- `alpha` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Alpha (optional, default `1`)
-
----
+* * *
 
 ## Todo
 
-- Distributions
+-   Distributions
 
-  - [x] uniform
-  - [x] uniformInt
-  - [x] uniformBoolean
-  - [x] normal
-  - [x] logNormal
-  - [ ] chiSquared
-  - [ ] cauchy
-  - [ ] fischerF
-  - [ ] studentT
-  - [x] bernoulli
-  - [x] binomial
-  - [ ] negativeBinomial
-  - [x] geometric
-  - [x] poisson
-  - [x] exponential
-  - [ ] gamma
-  - [ ] hyperExponential
-  - [ ] weibull
-  - [ ] beta
-  - [ ] laplace
-  - [x] irwinHall
-  - [x] bates
-  - [x] pareto
+    -   [x] uniform
+    -   [x] uniformInt
+    -   [x] uniformBoolean
+    -   [x] normal
+    -   [x] logNormal
+    -   [ ] chiSquared
+    -   [ ] cauchy
+    -   [ ] fischerF
+    -   [ ] studentT
+    -   [x] bernoulli
+    -   [x] binomial
+    -   [ ] negativeBinomial
+    -   [x] geometric
+    -   [x] poisson
+    -   [x] exponential
+    -   [ ] gamma
+    -   [ ] hyperExponential
+    -   [ ] weibull
+    -   [ ] beta
+    -   [ ] laplace
+    -   [x] irwinHall
+    -   [x] bates
+    -   [x] pareto
 
-- Generators
+-   Generators
 
-  - [x] pluggable prng
-  - [ ] port more prng from boost
-  - [ ] custom entropy
+    -   [x] pluggable prng
+    -   [ ] port more prng from boost
+    -   [ ] custom entropy
 
-- Misc
-  - [x] browser support via rollup
-  - [x] basic docs
-  - [x] basic tests
-  - [x] test suite
-  - [x] initial release!
-  - [x] typescript support
+-   Misc
+    -   [x] browser support via rollup
+    -   [x] basic docs
+    -   [x] basic tests
+    -   [x] test suite
+    -   [x] initial release!
+    -   [x] typescript support
 
 ## Related
 
-- [d3-random](https://github.com/d3/d3-random) - D3's excellent random number generation library.
-- [seedrandom](https://github.com/davidbau/seedrandom) - Seedable pseudo random number generator.
-- [random-int](https://github.com/sindresorhus/random-int) - For the common use case of generating uniform random ints.
-- [random-float](https://github.com/sindresorhus/random-float) - For the common use case of generating uniform random floats.
-- [randombytes](https://github.com/crypto-browserify/randombytes) - Random crypto bytes for Node.js and the browser.
+-   [d3-random](https://github.com/d3/d3-random) - D3's excellent random number generation library.
+-   [seedrandom](https://github.com/davidbau/seedrandom) - Seedable pseudo random number generator.
+-   [random-int](https://github.com/sindresorhus/random-int) - For the common use case of generating uniform random ints.
+-   [random-float](https://github.com/sindresorhus/random-float) - For the common use case of generating uniform random floats.
+-   [randombytes](https://github.com/crypto-browserify/randombytes) - Random crypto bytes for Node.js and the browser.
 
 ## Credit
 
